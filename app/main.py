@@ -3,11 +3,10 @@ import read_csv
 import chars
 
 def run():
-  data = read_csv.read_csv('./app/data.csv')
-  
-  #### Esto es para tomas los datos de una columna
-  Continent = input('Type Country => ')
-  data = list(filter(lambda item : item['Continent'] == Continent ,data))
+  data = read_csv.read_csv('data.csv')
+  ## Esto es para tomas los datos de una columna
+  #Continent = input('Type Country => ')
+  data = list(filter(lambda item : item['Continent'] == 'South America' ,data))
 
   countries = list(map(lambda x: x['Country/Territory'], data))
   percentages = list(map(lambda x: x['World Population Percentage'], data))
