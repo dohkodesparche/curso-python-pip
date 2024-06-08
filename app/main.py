@@ -1,8 +1,10 @@
 import utils
 import read_csv
 import chars
+import pandas as pd
 
 def run():
+  '''
   data = read_csv.read_csv('data.csv')
   ## Esto es para tomas los datos de una columna
   #Continent = input('Type Country => ')
@@ -11,7 +13,16 @@ def run():
   countries = list(map(lambda x: x['Country/Territory'], data))
   percentages = list(map(lambda x: x['World Population Percentage'], data))
   chars.generate_pie_chart(countries, percentages)
-  
+'''
+  df = pd.read_csv('data.csv')
+  df = df[df['Continent']=='Africa']
+
+  countries =df['Country/Territory'].values
+  percentages=df['World Population Percentage'].values
+  chars.generate_pie_chart(countries, percentages)
+
+  data = read_csv.read_csv('data.csv')
+
   #### Esto es para tomas los datos de una fila
   country = input('Type Country => ')
   print(country)
